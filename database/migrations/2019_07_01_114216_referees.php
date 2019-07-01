@@ -15,7 +15,7 @@ class Referees extends Migration
     {
         Schema::create('referees', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreign('idUser')->references('id')->on('users')->nullable();
+            //$table->foreign('idUser')->references('id')->on('users')->nullable();
             $table->string('area');
         });
     }
