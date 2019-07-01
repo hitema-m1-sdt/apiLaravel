@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Sensor;
+use App\Models\Lesson;
 
 class LessonController extends Controller
 {
@@ -15,7 +15,6 @@ class LessonController extends Controller
      Lesson::create($request->all());
      return response()->json(array('success' => true, 'lesson_created' => 1), 200);
    }
-}
 //---------------------------------------------------------------------------
 //                                  Read
 //---------------------------------------------------------------------------

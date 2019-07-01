@@ -21,8 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->stirng('role');
-            $table->foreign('idCategory')->references('id')->on('categories')->nullable();
+            $table->string('role');
+            //$table->foreign('idCategory')->references('id')->on('categories')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
