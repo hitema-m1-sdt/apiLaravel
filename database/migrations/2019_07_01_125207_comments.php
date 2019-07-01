@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Attendances extends Migration
+class Comments extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class Attendances extends Migration
      */
     public function up()
     {
-        schema::create('attendances', function (Blueprint $table){
+        schema::create('comments', function (Blueprint $table){
             $table->bigIncrements('id');
-            $table->foreign('idLesson')->references('id')->on('lessons')->nullable();
-            $table->boolean('confirmed');
-            $table->date('date');
+            $table->date('creationDate');
+            $table->foreign('idAuthor')->references('id')->on('users');
+            $table->longText('message');
         });
     }
 
@@ -29,7 +29,7 @@ class Attendances extends Migration
     public function down()
     {
         {
-            schema::dropIfExists('attendances');
+            schema::droptIfExists('comments');
         }
     }
 }
