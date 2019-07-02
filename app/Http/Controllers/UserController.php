@@ -3,45 +3,45 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Arm;
+use App\Models\User;
 
-class ArmController extends Controller
+class UserController extends Controller
 {
   //---------------------------------------------------------------------------
   //                                  Create
   //---------------------------------------------------------------------------
-     public function postArm(Request $request) {
+     public function postUser(Request $request) {
        header("Access-Control-Allow-Origin: *");
-       Arm::create($request->all());
-       return response()->json(array('success' => true, 'Arm_created' => 1), 200);
+       User::create($request->all());
+       return response()->json(array('success' => true, 'User_created' => 1), 200);
      }
   //---------------------------------------------------------------------------
   //                                  Read
   //---------------------------------------------------------------------------
-   public function getAllArm() {
+   public function getAllUser() {
      header("Access-Control-Allow-Origin: *");
-     $arms = Arm::get();
-     return response()->json($arms);
+     $users = User::get();
+     return response()->json($users);
    }
-   public function getArm($arm_id) {
+   public function getUser($user_id) {
      header("Access-Control-Allow-Origin: *");
-     $arm = Arm::find($arm_id);
-     return response()->json($arm);
+     $user = User::find($user_id);
+     return response()->json($user);
    }
    //---------------------------------------------------------------------------
    //                                  Update
    //---------------------------------------------------------------------------
-   public function putArm(Request $request, $arm_id) {
+   public function putUser(Request $request, $user_id) {
      header("Access-Control-Allow-Origin: *");
-     Arm::find($arm_id)->update($request->all());
-     return response()->json(array('success' => true, 'Arm_created' => 1), 200);
+     User::find($user_id)->update($request->all());
+     return response()->json(array('success' => true, 'User_created' => 1), 200);
    }
    //---------------------------------------------------------------------------
    //                                  Delete
    //---------------------------------------------------------------------------
-   public function deleteArm($arm_id) {
+   public function deleteUser($user_id) {
      header("Access-Control-Allow-Origin: *");
-     $arm = Arm::find($arm_id)->delete();
-     return response()->json(array('success' => true, 'Arm_deleted' => 1), 200);
+     $user = User::find($user_id)->delete();
+     return response()->json(array('success' => true, 'User_deleted' => 1), 200);
    }
 }
