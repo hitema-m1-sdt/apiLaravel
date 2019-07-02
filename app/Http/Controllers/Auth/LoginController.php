@@ -50,6 +50,17 @@ class LoginController extends Controller
         return response()->json(['error' => 'login_error'], 401);
     }
 
+    public function user(Request $request)
+{
+  header("Access-Control-Allow-Origin: *");
+    $user = User::find(Auth::user()->id);
+
+    return response()->json([
+        'status' => 'success',
+        'data' => $user
+    ]);
+}
+
     private function guard()
     {
         return Auth::guard();
