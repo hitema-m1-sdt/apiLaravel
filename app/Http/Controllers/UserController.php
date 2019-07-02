@@ -11,7 +11,7 @@ class UserController extends Controller
   //                                  Create
   //---------------------------------------------------------------------------
      public function postUser(Request $request) {
-       header("Access-Control-Allow-Origin: *");
+       //header("Access-Control-Allow-Origin: *");
        User::create($request->all());
        return response()->json(array('success' => true, 'User_created' => 1), 200);
      }
@@ -19,7 +19,7 @@ class UserController extends Controller
   //                                  Read
   //---------------------------------------------------------------------------
    public function getAllUser() {
-     header("Access-Control-Allow-Origin: *");
+     //header("Access-Control-Allow-Origin: *");
      $users = User::get();
      return response()->json($users);
    }
@@ -32,7 +32,7 @@ class UserController extends Controller
    //                                  Update
    //---------------------------------------------------------------------------
    public function putUser(Request $request, $user_id) {
-     header("Access-Control-Allow-Origin: *");
+     //header("Access-Control-Allow-Origin: *");
      User::find($user_id)->update($request->all());
      return response()->json(array('success' => true, 'User_created' => 1), 200);
    }
@@ -40,7 +40,7 @@ class UserController extends Controller
    //                                  Delete
    //---------------------------------------------------------------------------
    public function deleteUser($user_id) {
-     header("Access-Control-Allow-Origin: *");
+    // header("Access-Control-Allow-Origin: *");
      $user = User::find($user_id)->delete();
      return response()->json(array('success' => true, 'User_deleted' => 1), 200);
    }
