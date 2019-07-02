@@ -14,7 +14,7 @@ class Attendances extends Migration
     public function up()
     {
         schema::create('attendances', function (Blueprint $table){
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('idLesson')->unsigned()->nullable();
             $table->boolean('confirmed');
             $table->date('date');

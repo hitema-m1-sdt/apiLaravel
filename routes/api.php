@@ -16,7 +16,18 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('/getalllesson', 'LessonController@getAllLesson')->name('getAllLesson');
-Route::get('/getlesson/{id}', 'LessonController@getLesson')->name('getLesson');
-Route::get('/deletelesson/{id}', 'LessonController@deleteLesson')->name('deleteLesson');
+//---------------------------------------------------------------------------
+//                                  Lesson
+//---------------------------------------------------------------------------
+Route::get('/lesson/getall', 'LessonController@getAllLesson')->name('getAllLesson');
+Route::get('/lesson/get/{id}', 'LessonController@getLesson')->name('getLesson');
+Route::get('/lesson/delete/{id}', 'LessonController@deleteLesson')->name('deleteLesson');
+//---------------------------------------------------------------------------
+//                                  Arm
+//---------------------------------------------------------------------------
+Route::get('/arm/getall', 'ArmController@getAllArm')->name('getAllArm');
+Route::get('/arm/get/{id}', 'ArmController@getArm')->name('getArm');
+Route::get('/arm/delete/{id}', 'ArmController@deleteArm')->name('deleteArm');
+//---------------------------------------------------------------------------
+//                                  . . .
+//---------------------------------------------------------------------------

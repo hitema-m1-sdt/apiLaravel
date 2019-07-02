@@ -14,7 +14,7 @@ class Objectives extends Migration
     public function up()
     {
         schema::create('objectives', function (Blueprint $table){
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('idShooter')->unsigned()->nullable();
             $table->string('objectiveName');
             $table->boolean('knowledge');

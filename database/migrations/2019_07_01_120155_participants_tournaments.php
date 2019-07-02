@@ -14,7 +14,7 @@ class ParticipantsTournaments extends Migration
     public function up()
     {
         schema::create('participantsTournaments', function (Blueprint $table){
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('idCompetition')->unsigned()->nullable();
             $table->integer('idUser')->unsigned()->nullable();
            });

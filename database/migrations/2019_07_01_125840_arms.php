@@ -14,8 +14,8 @@ class Arms extends Migration
     public function up()
     {
         schema::create('arms', function (Blueprint $table){
-        $table->bigIncrements('id');
-        $table->string('name');
+          $table->increments('id');
+          $table->string('name');
         });
     }
 
