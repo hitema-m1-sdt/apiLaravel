@@ -16,9 +16,13 @@ class Licences extends Migration
         schema::create('licences', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->string('licenceNumber');
-            //$table->foreign('idUser')->references('id')->on('users')->nullable();
+            $table->integer('idUser')->unsigned()->nullable();
             $table->Date('startDate');
             $table->Date('endDate');
+        });
+
+        schema::table('licences', function (Blueprint $table){
+            $table->foreign('idUser')->references('id')->on('users')->nullable();
         });
     }
 

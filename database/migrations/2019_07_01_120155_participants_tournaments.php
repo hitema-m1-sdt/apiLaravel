@@ -15,9 +15,14 @@ class ParticipantsTournaments extends Migration
     {
         schema::create('participantsTournaments', function (Blueprint $table){
             $table->bigIncrements('id');
-            //$table->foreign('idCompetition')->references('id')->on('tournament')->nullable();
-            //$table->foreign('idUser')->references('id')->on('users')->nullable();
-        });
+            $table->integer('idCompetition')->unsigned()->nullable();
+            $table->integer('idUser')->unsigned()->nullable();
+           });
+
+        Schema::table('participantsTournaments', function (Blueprint $table) {
+            $table->foreign('idCompetition')->references('id')->on('tournaments');
+            $table->foreign('idUser')->references('id')->on('users');
+          });
     }
 
     /**

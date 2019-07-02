@@ -15,10 +15,15 @@ class Objectives extends Migration
     {
         schema::create('objectives', function (Blueprint $table){
             $table->bigIncrements('id');
-            //$table->foreign('idShooter')->references('id')->on('user')->nullable();
+            $table->integer('idShooter')->unsigned()->nullable();
             $table->string('objectiveName');
             $table->boolean('knowledge');
-            //$table->foreign('idComment')->references('id')->on('comments')->nullable();
+            $table->integer('idComment')->unsigned()->nullable();
+        });
+
+        schema::table('objectives', function (Blueprint $table){
+            $table->foreign('idShooter')->references('id')->on('users');
+            $table->foreign('idComment')->references('id')->on('comments');
         });
     }
 

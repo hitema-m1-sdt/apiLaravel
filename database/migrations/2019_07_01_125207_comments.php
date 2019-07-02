@@ -16,8 +16,12 @@ class Comments extends Migration
         schema::create('comments', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->date('creationDate');
-            //$table->foreign('idAuthor')->references('id')->on('users');
+            $table->integer('idAuthor')->unsigned()->nullable();
             $table->longText('message');
+        });
+
+        schema::table('comments', function (Blueprint $table){
+            $table->foreign('idAuthor')->references('id')->on('users');
         });
     }
 
