@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +13,41 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        DB::table('categories')->insert([
+            array(
+                'name' => 'M7'
+            ),
+            array(
+                'name' => 'M9'
+            ),
+            array(
+                'name' => 'M11'
+            ),
+            array(
+                'name' => 'M13'
+            ),
+            array(
+                'name' => 'M15'
+            ),
+            array(
+                'name' => 'M17'
+            ),
+            array(
+                'name' => 'M20'
+            ),
+            array(
+                'name' => 'Senior'
+            ),
+        ]);
+
+        DB::table('arms')->insert([
+            array(
+                'name' => 'Fleuret'
+            ),
+            array(
+                'name' => 'Sabre'
+            ),
+        ]);
+
     }
 }

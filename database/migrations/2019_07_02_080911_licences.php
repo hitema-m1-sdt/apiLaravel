@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class tournaments extends Migration
+class Licences extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class tournaments extends Migration
      */
     public function up()
     {
-        Schema::create('tournaments', function (Blueprint $table) {
+        schema::create('licences', function (Blueprint $table){
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('localisation');
-            $table->dateTime('DateHour');
-            //$table->foreign('idCategory')->references('id')->on('categories')->nullable();
+            $table->string('licenceNumber');
+            //$table->foreign('idUser')->references('id')->on('users')->nullable();
+            $table->Date('startDate');
+            $table->Date('endDate');
         });
     }
 
@@ -29,8 +29,6 @@ class tournaments extends Migration
      */
     public function down()
     {
-        {
-            Schema::dropIfExists('tournaments');
-        }
+        schema::DropIfExists('licences');
     }
 }
