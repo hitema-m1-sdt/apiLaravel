@@ -40,5 +40,14 @@ class DatabaseSeeder extends Seeder
             ),
         ]);
 
+        DB::table('arms')->insert([
+            array(
+                'name' => 'Fleuret'
+            ),
+            array(
+                'name' => 'Sabre'
+            ),
+        ]);
+
     }
 }
