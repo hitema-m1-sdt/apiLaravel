@@ -19,8 +19,7 @@ class tournaments extends Migration
             $table->string('name');
             $table->string('localisation');
             $table->dateTime('DateHour');
-            $table->unsignedInteger('idCategory')->nullable();
-        });
+            });
 
         Schema::table('tournaments', function (Blueprint $table) {
             $table->foreign('idCategory')->references('id')->on('categories');
