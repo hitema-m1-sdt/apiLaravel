@@ -9,7 +9,7 @@ composer install
 ```
 copy-paste .env.example
 rename .env
-modify this for database
+modify this file with database name, login and password
 ```
 
 ### Create Api Key
