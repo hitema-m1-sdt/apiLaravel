@@ -14,7 +14,7 @@ class Comments extends Migration
     public function up()
     {
         schema::create('comments', function (Blueprint $table){
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->date('creationDate');
             $table->integer('idAuthor')->unsigned()->nullable();
             $table->longText('message');

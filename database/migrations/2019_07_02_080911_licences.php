@@ -14,7 +14,7 @@ class Licences extends Migration
     public function up()
     {
         schema::create('licences', function (Blueprint $table){
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('licenceNumber');
             $table->integer('idUser')->unsigned()->nullable();
             $table->Date('startDate');

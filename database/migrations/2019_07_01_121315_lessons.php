@@ -14,7 +14,7 @@ class Lessons extends Migration
     public function up()
     {
         schema::create ('lessons', function (Blueprint $table){
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('idCombatInstructor')->unsigned()->nullable();
             $table->integer('idShooter')->unsigned()->nullable();
             $table->string('lessonName');

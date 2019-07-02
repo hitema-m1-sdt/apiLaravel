@@ -14,11 +14,11 @@ class tournaments extends Migration
     public function up()
     {
         Schema::create('tournaments', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->integer('idCategory')->unsigned()->nullable();
             $table->string('name');
             $table->string('localisation');
             $table->dateTime('DateHour');
-            $table->integer('idCategory')->unsigned()->nullable();
         });
 
         Schema::table('tournaments', function (Blueprint $table) {
