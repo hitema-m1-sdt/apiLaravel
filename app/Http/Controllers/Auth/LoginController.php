@@ -40,6 +40,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+      header("Access-Control-Allow-Origin: *");
         $credentials = $request->only('email', 'password');
 
         if ($token = $this->guard()->attempt($credentials)) {
