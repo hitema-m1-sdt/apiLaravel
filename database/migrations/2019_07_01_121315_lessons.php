@@ -17,7 +17,6 @@ class Lessons extends Migration
             $table->increments('id');
             $table->integer('idCombatInstructor')->unsigned()->nullable();
             $table->integer('idShooter')->unsigned()->nullable();
-            $table->string('lessonName');
             $table->integer('idComment')->unsigned()->nullable();
         });
 

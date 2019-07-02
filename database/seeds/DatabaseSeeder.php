@@ -40,20 +40,10 @@ class DatabaseSeeder extends Seeder
             ),
         ]);
 
-        DB::table('arms')->insert([
-            array(
-                'name' => 'Fleuret'
-            ),
-            array(
-                'name' => 'Sabre'
-            ),
-        ]);
-
         DB::table('users')->insert([
-          array('name' => 'tireur', 'email' => 'tireur@test.fr', 'password' => Hash::make('tireur'),'role' => 'TIREUR'),
+            array('name' => 'tireur', 'email' => 'tireur@test.fr', 'password' => Hash::make('tireur'),'role' => 'TIREUR'),
           array('name' => 'maitre', 'email' => 'maitre@test.fr', 'password' => Hash::make('maitre'),'role' => 'MAITRE_ARMES'),
           array('name' => 'admin', 'email' => 'admin@test.fr', 'password' => Hash::make('admin'),'role' => 'ADMIN'),
-        ]
-        );
+        ]);
     }
 }

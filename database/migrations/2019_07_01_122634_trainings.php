@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Arms extends Migration
+class Trainings extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class Arms extends Migration
      */
     public function up()
     {
-        schema::create('arms', function (Blueprint $table){
-          $table->increments('id');
-          $table->string('name');
+        schema::create('trainings', function (Blueprint $table){
+            $table->increments('id');
+            $table->date('startDate');
+            $table->date('endDate');
         });
     }
 
@@ -26,8 +27,6 @@ class Arms extends Migration
      */
     public function down()
     {
-        {
-            schema::dropIfExists('arms');
-        }
+        schema::dropIfExists('trainings');
     }
 }

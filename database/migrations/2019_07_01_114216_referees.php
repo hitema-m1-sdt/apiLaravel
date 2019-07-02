@@ -17,6 +17,7 @@ class Referees extends Migration
             $table->increments('id');
             $table->integer('idUser')->unsigned()->nullable();
             $table->string('area');
+            $table->string('status');
         });
 
         Schema::table('referees', function (Blueprint $table) {
