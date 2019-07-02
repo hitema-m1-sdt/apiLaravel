@@ -14,9 +14,13 @@ class Referees extends Migration
     public function up()
     {
         Schema::create('referees', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            //$table->foreign('idUser')->references('id')->on('users')->nullable();
+            $table->increments('id');
+            $table->integer('idUser')->unsigned()->nullable();
             $table->string('area');
+        });
+
+        Schema::table('referees', function (Blueprint $table) {
+          $table->foreign('idUser')->references('id')->on('users');
         });
     }
 
