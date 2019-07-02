@@ -15,7 +15,7 @@ class Attendances extends Migration
     {
         schema::create('attendances', function (Blueprint $table){
             $table->bigIncrements('id');
-            $table->foreign('idLesson')->references('id')->on('lessons')->nullable();
+            //$table->foreign('idLesson')->references('id')->on('lessons')->nullable();
             $table->boolean('confirmed');
             $table->date('date');
         });

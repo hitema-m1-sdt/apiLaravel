@@ -18,7 +18,7 @@ class Tournaments extends Migration
             $table->string('name');
             $table->string('localisation');
             $table->dateTime('DateHour');
-            $table->foreign('idCategory')->references('id')->on('categories')->nullable();
+            //$table->foreign('idCategory')->references('id')->on('categories')->nullable();
         });
     }
 
