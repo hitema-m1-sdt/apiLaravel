@@ -13,9 +13,15 @@ use Illuminate\Http\Request;
 |
 */
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Key, Authorization");
+header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/login', 'Auth\LoginController@login');
+Route::group(['middleware' => 'jwt.auth'], function(){
+   // Route::get('/user', 'Auth\LoginController@user');
+});
+Route::group(['middleware' => 'jwt.refresh'], function(){
+    Route::get('/refresh', 'Auth\LoginController@refresh');
 });
 
 //---------------------------------------------------------------------------
@@ -54,3 +60,9 @@ Route::get('/training/delete/{id}', 'TrainingController@deleteTraining')->name('
 Route::get('/objective/getall', 'ObjectiveController@getAllObjective')->name('getAllObjective');
 Route::get('/objective/get/{id}', 'ObjectiveController@getObjective')->name('getObjective');
 Route::get('/objective/delete/{id}', 'ObjectiveController@deleteObjective')->name('deleteObjective');
+//---------------------------------------------------------------------------
+//                               Refere
+//---------------------------------------------------------------------------
+Route::get('/referees/getall', 'RefereController@getAllRefere')->name('getAllRefere');
+Route::get('/referees/get/{id}', 'RefereController@getRefere')->name('getRefere');
+Route::get('/referees/delete/{id}', 'RefereController@deleteRefere')->name('deleteRefere');
