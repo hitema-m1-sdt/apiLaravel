@@ -12,18 +12,11 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *");
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::group(['middleware' => 'auth:api'], function(){
-        Route::get('user', 'Auth\LoginController@user');
-        Route::post('logout', 'Auth\LoginController@logout');
-    });
-
-Route::get('/login', 'Auth\LoginController@login')->name('login');
 
 //---------------------------------------------------------------------------
 //                                  Lesson
@@ -55,3 +48,9 @@ Route::get('/category/delete/{id}', 'CategoriesController@deleteCategories')->na
 Route::get('/training/getall', 'TrainingController@getAllTraining')->name('getAllTraining');
 Route::get('/training/get/{id}', 'TrainingController@getTraining')->name('getTraining');
 Route::get('/training/delete/{id}', 'TrainingController@deleteTraining')->name('deleteTraining');
+//---------------------------------------------------------------------------
+//                               Objective
+//---------------------------------------------------------------------------
+Route::get('/objective/getall', 'ObjectiveController@getAllObjective')->name('getAllObjective');
+Route::get('/objective/get/{id}', 'ObjectiveController@getObjective')->name('getObjective');
+Route::get('/objective/delete/{id}', 'ObjectiveController@deleteObjective')->name('deleteObjective');
