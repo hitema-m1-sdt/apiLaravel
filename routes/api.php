@@ -18,14 +18,23 @@ header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
 
 Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@logout');
-Route::group(['middleware' => 'jwt.auth'], function(){
-   // Route::get('/user', 'Auth\LoginController@user');
 
-});
-Route::group(['middleware' => 'jwt.refresh'], function(){
-    Route::get('/refresh', 'Auth\LoginController@refresh');
-});
 
+
+// Route::group(['middleware' => 'jwt.auth'], function(){
+//    // Route::get('/user', 'Auth\LoginController@user');
+//
+// });
+// Route::group(['middleware' => 'jwt.refresh'], function(){
+//     Route::get('/refresh', 'Auth\LoginController@refresh');
+// });
+//---------------------------------------------------------------------------
+//                                  User
+//---------------------------------------------------------------------------
+Route::get('/user/getall', 'UserController@getAllUser')->name('getAllUser');
+Route::get('/user/get/{id}', 'UserController@getUser')->name('getUser');
+Route::get('/user/delete/{id}', 'UserController@deleteUser')->name('deleteUser');
+Route::get('/user/create', 'UserController@postUser')->name('postUser');
 //---------------------------------------------------------------------------
 //                                  Lesson
 //---------------------------------------------------------------------------
