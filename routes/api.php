@@ -49,3 +49,9 @@ Route::get('/tournament/delete/{id}', 'TournamentController@deleteTournament')->
 Route::get('/category/getall', 'CategoriesController@getAllCategories')->name('getAllCategories');
 Route::get('/category/get/{id}', 'CategoriesController@getCategories')->name('getCategories');
 Route::get('/category/delete/{id}', 'CategoriesController@deleteCategories')->name('deleteCategories');
+//---------------------------------------------------------------------------
+//                               Training
+//---------------------------------------------------------------------------
+Route::get('/training/getall', 'TrainingController@getAllTraining')->name('getAllTraining');
+Route::get('/training/get/{id}', 'TrainingController@getTraining')->name('getTraining');
+Route::get('/training/delete/{id}', 'TrainingController@deleteTraining')->name('deleteTraining');
