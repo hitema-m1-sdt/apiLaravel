@@ -18,12 +18,11 @@ class Objectives extends Migration
             $table->integer('idShooter')->unsigned()->nullable();
             $table->string('objectiveName');
             $table->boolean('knowledge');
-            $table->integer('idComment')->unsigned()->nullable();
+            $table->json('comment')->nullable();
         });
 
         schema::table('objectives', function (Blueprint $table){
             $table->foreign('idShooter')->references('id')->on('users');
-            $table->foreign('idComment')->references('id')->on('comments');
         });
     }
 

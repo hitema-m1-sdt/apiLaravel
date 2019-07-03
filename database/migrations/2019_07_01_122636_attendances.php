@@ -16,12 +16,12 @@ class Attendances extends Migration
         schema::create('attendances', function (Blueprint $table){
             $table->increments('id');
             $table->integer('idTraining')->unsigned()->nullable();
-            $table->boolean('confirmed');
-            $table->date('date');
+            $table->integer('idUser')->unsigned()->nullable();
         });
 
         schema::table('attendances', function (Blueprint $table){
             $table->foreign('idTraining')->references('id')->on('trainings');
+              $table->foreign('idUser')->references('id')->on('users');
         });
     }
 
