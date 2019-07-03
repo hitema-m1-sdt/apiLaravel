@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-//("Access-Control-Allow-Origin: *");
+("Access-Control-Allow-Origin: *");
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -43,3 +43,9 @@ Route::get('/user/delete/{id}', 'UserController@deleteUser')->name('deleteUser')
 Route::get('/tournament/getall', 'TournamentController@getAllTournament')->name('getAllTournament');
 Route::get('/tournament/get/{id}', 'TournamentController@getTournament')->name('getTournament');
 Route::get('/tournament/delete/{id}', 'TournamentController@deleteTournament')->name('deleteTournament');
+//---------------------------------------------------------------------------
+//                               Categories
+//---------------------------------------------------------------------------
+Route::get('/category/getall', 'CategoriesController@getAllCategories')->name('getAllCategories');
+Route::get('/category/get/{id}', 'CategoriesController@getCategories')->name('getCategories');
+Route::get('/category/delete/{id}', 'CategoriesController@deleteCategories')->name('deleteCategories');
