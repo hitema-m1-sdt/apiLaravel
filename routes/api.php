@@ -17,8 +17,10 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
 
 Route::post('/login', 'Auth\LoginController@login');
+Route::post('/logout', 'Auth\LoginController@logout');
 Route::group(['middleware' => 'jwt.auth'], function(){
    // Route::get('/user', 'Auth\LoginController@user');
+
 });
 Route::group(['middleware' => 'jwt.refresh'], function(){
     Route::get('/refresh', 'Auth\LoginController@refresh');
