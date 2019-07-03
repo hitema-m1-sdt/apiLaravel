@@ -12,18 +12,17 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-//("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Key, Authorization");
+header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/login', 'Auth\LoginController@login');
+Route::group(['middleware' => 'jwt.auth'], function(){
+   // Route::get('/user', 'Auth\LoginController@user');
 });
-
-Route::group(['middleware' => 'auth:api'], function(){
-        Route::get('user', 'Auth\LoginController@user');
-        Route::post('logout', 'Auth\LoginController@logout');
-    });
-
-Route::get('/login', 'Auth\LoginController@login')->name('login');
+Route::group(['middleware' => 'jwt.refresh'], function(){
+    Route::get('/refresh', 'Auth\LoginController@refresh');
+});
 
 //---------------------------------------------------------------------------
 //                                  Lesson
