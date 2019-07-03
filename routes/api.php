@@ -38,5 +38,8 @@ Route::get('/user/getall', 'UserController@getAllUser')->name('getAllUser');
 Route::get('/user/get/{id}', 'UserController@getUser')->name('getUser');
 Route::get('/user/delete/{id}', 'UserController@deleteUser')->name('deleteUser');
 //---------------------------------------------------------------------------
-//                                  . . .
+//                               Tournament
 //---------------------------------------------------------------------------
+Route::get('/tournament/getall', 'TournamentController@getAllTournament')->name('getAllTournament');
+Route::get('/tournament/get/{id}', 'TournamentController@getTournament')->name('getTournament');
+Route::get('/tournament/delete/{id}', 'TournamentController@deleteTournament')->name('deleteTournament');
