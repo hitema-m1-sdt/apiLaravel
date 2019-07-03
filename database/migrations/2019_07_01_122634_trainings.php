@@ -15,8 +15,8 @@ class Trainings extends Migration
     {
         schema::create('trainings', function (Blueprint $table){
             $table->increments('id');
-            $table->date('startDate');
-            $table->date('endDate');
+            $table->dateTime('startDate');
+            $table->dateTime('endDate');
         });
     }
 
