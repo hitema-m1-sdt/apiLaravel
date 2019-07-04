@@ -66,6 +66,7 @@ Route::get('/category/delete/{id}', 'CategoriesController@deleteCategories')->na
 //                               Training
 //---------------------------------------------------------------------------
 Route::get('/training/getall', 'TrainingController@getAllTraining')->name('getAllTraining');
+Route::get('/training/today', 'TrainingController@getTrainingsOfTheDay')->name('getTrainingOfTheDay');
 Route::get('/training/get/{id}', 'TrainingController@getTraining')->name('getTraining');
 Route::get('/training/delete/{id}', 'TrainingController@deleteTraining')->name('deleteTraining');
 Route::post('/training/create', 'TrainingController@postTraining')->name('postTraining');
@@ -78,8 +79,13 @@ Route::get('/objective/get/{id}', 'ObjectiveController@getObjective')->name('get
 Route::get('/objective/delete/{id}', 'ObjectiveController@deleteObjective')->name('deleteObjective');
 Route::post('/objective/create', 'ObjectiveController@postObjective')->name('postObjective');
 //---------------------------------------------------------------------------
-//                               Refere
+//                               Referee
 //---------------------------------------------------------------------------
 Route::get('/referees/getall', 'RefereController@getAllRefere')->name('getAllRefere');
 Route::get('/referees/get/{id}', 'RefereController@getRefere')->name('getRefere');
 Route::get('/referees/delete/{id}', 'RefereController@deleteRefere')->name('deleteRefere');
+
+//---------------------------------------------------------------------------
+//                               Attendances
+//---------------------------------------------------------------------------
+Route::get('/attendances/today/{id}', 'AttendanceController@getAttendancesOfTheDay')->name('getAttendancesOfTheDay');

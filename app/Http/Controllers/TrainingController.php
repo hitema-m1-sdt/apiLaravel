@@ -60,7 +60,12 @@ class TrainingController extends Controller
 
    public function getTrainingsOfTheDay()
    {
-       $trainings = Training::where(DB::raw("DATE(date) = '".date('Y-m-d')."'"))->orderBy('date')->get();
+
+       $trainings = Training::where(DB::raw('date(`date`)'), '=', DB::raw('curdate()'))
+           ->orderBy('date')
+           ->get();
+
+       return response()->json($trainings);
    }
    //---------------------------------------------------------------------------
    //                                  Update
