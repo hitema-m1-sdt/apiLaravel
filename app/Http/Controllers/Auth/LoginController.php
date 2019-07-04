@@ -60,7 +60,8 @@ class LoginController extends Controller
 
         return response([
             'status' => 'success',
-            'user' => $user
+            'user' => $user,
+            'token' => $token
         ])
             ->header('Authorization', $token);
     }

@@ -67,8 +67,8 @@ Route::get('/category/delete/{id}', 'CategoriesController@deleteCategories')->na
 //---------------------------------------------------------------------------
 Route::get('/training/getall', 'TrainingController@getAllTraining')->name('getAllTraining');
 Route::get('/training/get/{id}', 'TrainingController@getTraining')->name('getTraining');
-Route::get('/training/delete/{id}', 'TrainingController@deleteTraining')->name('deleteTraining');
-Route::get('/training/create', 'TrainingController@postTraining')->name('postTraining');
+Route::post('/training/delete/{id}', 'TrainingController@deleteTraining')->name('deleteTraining');
+Route::post('/training/create', 'TrainingController@postTraining')->name('postTraining');
 Route::get('/training/update/{id}', 'TrainingController@putTraining')->name('putTraining');
 //---------------------------------------------------------------------------
 //                               Objective
