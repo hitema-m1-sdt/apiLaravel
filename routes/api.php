@@ -43,8 +43,8 @@ Route::get('/user/get/tireur', 'UserController@getTireur')->name('getTireur');
 Route::get('/tournament/getall', 'TournamentController@getAllTournament')->name('getAllTournament');
 Route::get('/tournament/get/{id}', 'TournamentController@getTournament')->where('id', '[0-9]+')->name('getTournament');
 Route::get('/tournament/delete/{id}', 'TournamentController@deleteTournament')->name('deleteTournament');
-Route::get('/tournament/create', 'TournamentController@deleteTournament')->name('deleteTournament');
-Route::get('/tournament/update/{id}', 'TournamentController@deleteTournament')->name('deleteTournament');
+Route::post('/tournament/create', 'TournamentController@postTournament')->name('postTournament');
+Route::put('/tournament/update/{id}', 'TournamentController@putTournament')->name('putTournament');
 //---------------------------------------------------------------------------
 //                               Categories
 //---------------------------------------------------------------------------
