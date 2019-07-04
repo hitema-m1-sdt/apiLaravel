@@ -56,12 +56,32 @@ class TrainingController extends Controller
      $training = Training::find($training_id);
      return response()->json($training);
    }
+
+
+   public function getTrainingsOfTheDay()
+   {
+
+       $trainings = Training::where(DB::raw('date(`date`)'), '=', DB::raw('curdate()'))
+           ->orderBy('date')
+           ->get();
+
+       return response()->json($trainings);
+   }
    //---------------------------------------------------------------------------
    //                                  Update
    //---------------------------------------------------------------------------
    public function putTraining(Request $request, $training_id) {
-     Training::find($training_id)->update($request->all());
-     return response()->json(array('success' => true, 'Training_created' => 1), 200);
+
+         $date = new DateTime($request->get('date'));
+         $hour = intval(substr($request->get('time'), 0, 2));
+         $minutes = intval(substr($request->get('time'), 3, 2));
+         $date->setTime($hour,$minutes);
+
+         $type = $request->get('type');
+
+         Training::find($training_id)->update(['type' => $type, 'date' => $date]);
+
+       return response()->json(array('success' => true, 'Training_updated' => 1), 200);
    }
    //---------------------------------------------------------------------------
    //                                  Delete

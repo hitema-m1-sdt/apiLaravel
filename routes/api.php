@@ -57,8 +57,13 @@ Route::get('/category/delete/{id}', 'CategoriesController@deleteCategories')->na
 Route::get('/training/getall', 'TrainingController@getAllTraining')->name('getAllTraining');
 Route::get('/training/get/{id}', 'TrainingController@getTraining')->where('id', '[0-9]+')->name('getTraining');
 Route::post('/training/delete/{id}', 'TrainingController@deleteTraining')->name('deleteTraining');
+
+Route::get('/training/today', 'TrainingController@getTrainingsOfTheDay')->name('getTrainingOfTheDay');
+Route::get('/training/get/{id}', 'TrainingController@getTraining')->name('getTraining');
+Route::get('/training/delete/{id}', 'TrainingController@deleteTraining')->name('deleteTraining');
+
 Route::post('/training/create', 'TrainingController@postTraining')->name('postTraining');
-Route::get('/training/update/{id}', 'TrainingController@putTraining')->name('putTraining');
+Route::post('/training/update/{id}', 'TrainingController@putTraining')->name('putTraining');
 //---------------------------------------------------------------------------
 //                               Objective
 //---------------------------------------------------------------------------
@@ -68,8 +73,13 @@ Route::get('/objective/delete/{id}', 'ObjectiveController@deleteObjective')->nam
 Route::post('/objective/create', 'ObjectiveController@postObjective')->name('postObjective');
 Route::put('/objective/update/{id}', 'ObjectiveController@putObjective')->name('putObjective');
 //---------------------------------------------------------------------------
-//                               Refere
+//                               Referee
 //---------------------------------------------------------------------------
 Route::get('/referees/getall', 'RefereController@getAllRefere')->name('getAllRefere');
 Route::get('/referees/get/{id}', 'RefereController@getRefere')->where('id', '[0-9]+')->name('getRefere');
 Route::get('/referees/delete/{id}', 'RefereController@deleteRefere')->name('deleteRefere');
+
+//---------------------------------------------------------------------------
+//                               Attendances
+//---------------------------------------------------------------------------
+Route::get('/attendances/today/{id}', 'AttendanceController@getAttendancesOfTheDay')->name('getAttendancesOfTheDay');
