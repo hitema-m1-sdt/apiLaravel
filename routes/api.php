@@ -40,12 +40,16 @@ Route::get('/lesson/getall', 'LessonController@getAllLesson')->name('getAllLesso
 Route::get('/lesson/get/{id}', 'LessonController@getLesson')->name('getLesson');
 Route::get('/lesson/delete/{id}', 'LessonController@deleteLesson')->name('deleteLesson');
 Route::post('/lesson/create', 'LessonController@postLesson')->name('postLesson');
+Route::put('/lesson/update/{id}', 'LessonController@putLesson')->name('putLesson');
 //---------------------------------------------------------------------------
 //                                  User
 //---------------------------------------------------------------------------
 Route::get('/user/getall', 'UserController@getAllUser')->name('getAllUser');
-Route::get('/user/get/{id}', 'UserController@getUser')->name('getUser');
+Route::get('/user/get/{id}', 'UserController@getUser')->where('id', '[0-9]+')->name('getUser');
 Route::get('/user/delete/{id}', 'UserController@deleteUser')->name('deleteUser');
+
+Route::get('/user/get/maitre', 'UserController@getMaitre')->name('getMaitre');
+Route::get('/user/get/tireur', 'UserController@getTireur')->name('getTireur');
 //---------------------------------------------------------------------------
 //                               Tournament
 //---------------------------------------------------------------------------
