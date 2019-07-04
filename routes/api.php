@@ -74,6 +74,7 @@ Route::get('/training/update/{id}', 'TrainingController@putTraining')->name('put
 Route::get('/objective/getall', 'ObjectiveController@getAllObjective')->name('getAllObjective');
 Route::get('/objective/get/{id}', 'ObjectiveController@getObjective')->name('getObjective');
 Route::get('/objective/delete/{id}', 'ObjectiveController@deleteObjective')->name('deleteObjective');
+Route::post('/objective/create', 'ObjectiveController@postObjective')->name('postObjective');
 //---------------------------------------------------------------------------
 //                               Refere
 //---------------------------------------------------------------------------
