@@ -7,6 +7,7 @@ use DatePeriod;
 use DateTime;
 use Illuminate\Http\Request;
 use App\Models\Training;
+use Illuminate\Support\Facades\DB;
 
 class TrainingController extends Controller
 {
@@ -21,9 +22,19 @@ class TrainingController extends Controller
              new DateTime($request->get('endDate'))
          );
 
+         /**
+          * @var  $key
+          * @var DateTime $value
+          */
          foreach ($period as $key => $value) {
              if (in_array( $value->format('D'), $request->get('days'))) {
-                 Training::create(['startDate' =>  $value]);
+
+                 $hour = intval(substr($request->get('time'), 0, 2));
+                 $minutes = intval(substr($request->get('time'), 2, 2));
+                 $value->setTime($hour,$minutes);
+                 Training::create(['date' =>  $value, 'type' => $request->get('type')]);
+
+
              }
 
          }
@@ -31,13 +42,14 @@ class TrainingController extends Controller
 
 
 
-         return response()->json(array('success' => true, 'Training_created' => 1), 200);
+
+         return response()->json(array('success' => true, 200));
      }
   //---------------------------------------------------------------------------
   //                                  Read
   //---------------------------------------------------------------------------
    public function getAllTraining() {
-     $trainings = Training::get();
+     $trainings = Training::orderBy('date')->get();
      return response()->json($trainings);
    }
    public function getTraining($training_id) {
