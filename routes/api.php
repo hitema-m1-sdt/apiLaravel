@@ -19,8 +19,6 @@ header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
 Route::post('/login', 'Auth\LoginController@login');
 Route::post('/logout', 'Auth\LoginController@logout');
 
-
-
 // Route::group(['middleware' => 'jwt.auth'], function(){
 //    // Route::get('/user', 'Auth\LoginController@user');
 //
@@ -41,6 +39,7 @@ Route::get('/user/create', 'UserController@postUser')->name('postUser');
 Route::get('/lesson/getall', 'LessonController@getAllLesson')->name('getAllLesson');
 Route::get('/lesson/get/{id}', 'LessonController@getLesson')->name('getLesson');
 Route::get('/lesson/delete/{id}', 'LessonController@deleteLesson')->name('deleteLesson');
+Route::post('/lesson/create', 'LessonController@postLesson')->name('postLesson');
 //---------------------------------------------------------------------------
 //                                  User
 //---------------------------------------------------------------------------
@@ -73,6 +72,7 @@ Route::get('/training/update/{id}', 'TrainingController@putTraining')->name('put
 Route::get('/objective/getall', 'ObjectiveController@getAllObjective')->name('getAllObjective');
 Route::get('/objective/get/{id}', 'ObjectiveController@getObjective')->name('getObjective');
 Route::get('/objective/delete/{id}', 'ObjectiveController@deleteObjective')->name('deleteObjective');
+Route::post('/objective/create', 'ObjectiveController@postObjective')->name('postObjective');
 //---------------------------------------------------------------------------
 //                               Refere
 //---------------------------------------------------------------------------

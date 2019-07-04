@@ -12,6 +12,7 @@ class LessonController extends Controller
 //---------------------------------------------------------------------------
    public function postLesson(Request $request) {
      header("Access-Control-Allow-Origin: *");
+     //dd($request->only('idShooter'));
      Lesson::create($request->all());
      return response()->json(array('success' => true, 'lesson_created' => 1), 200);
    }
