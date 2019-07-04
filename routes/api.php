@@ -41,6 +41,7 @@ Route::get('/user/create', 'UserController@postUser')->name('postUser');
 Route::get('/lesson/getall', 'LessonController@getAllLesson')->name('getAllLesson');
 Route::get('/lesson/get/{id}', 'LessonController@getLesson')->name('getLesson');
 Route::get('/lesson/delete/{id}', 'LessonController@deleteLesson')->name('deleteLesson');
+Route::post('/lesson/create', 'LessonController@postLesson')->name('postLesson');
 //---------------------------------------------------------------------------
 //                                  User
 //---------------------------------------------------------------------------
