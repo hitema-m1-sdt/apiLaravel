@@ -20,13 +20,19 @@ class UserController extends Controller
   //                                  Read
   //---------------------------------------------------------------------------
    public function getAllUser() {
-     //header("Access-Control-Allow-Origin: *");
      $users = User::get();
      return response()->json($users);
    }
    public function getUser($user_id) {
-     header("Access-Control-Allow-Origin: *");
      $user = User::find($user_id);
+     return response()->json($user);
+   }
+   public function getMaitre() {
+     $user = User::where('role','MAITRE_ARMES')->get();
+     return response()->json($user);
+   }
+   public function getTireur() {
+     $user = User::where('role','TIREUR')->get();
      return response()->json($user);
    }
    //---------------------------------------------------------------------------
