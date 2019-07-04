@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Lesson extends Model
+class Refere extends Model
 {
   protected $fillable = [
-      'idCombatInstructor', 'idShooter', 'comment',
+      'idUser', 'area', 'status	'
   ];
 }

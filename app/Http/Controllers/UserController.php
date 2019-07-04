@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Hash;
 
 class UserController extends Controller
 {
@@ -11,8 +12,8 @@ class UserController extends Controller
   //                                  Create
   //---------------------------------------------------------------------------
      public function postUser(Request $request) {
-       //header("Access-Control-Allow-Origin: *");
-       User::create($request->all());
+        header("Access-Control-Allow-Origin: *");
+        User::create($request->all());
        return response()->json(array('success' => true, 'User_created' => 1), 200);
      }
   //---------------------------------------------------------------------------
