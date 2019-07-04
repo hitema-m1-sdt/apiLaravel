@@ -66,6 +66,7 @@ Route::get('/objective/getall', 'ObjectiveController@getAllObjective')->name('ge
 Route::get('/objective/get/{id}', 'ObjectiveController@getObjective')->where('id', '[0-9]+')->name('getObjective');
 Route::get('/objective/delete/{id}', 'ObjectiveController@deleteObjective')->name('deleteObjective');
 Route::post('/objective/create', 'ObjectiveController@postObjective')->name('postObjective');
+Route::put('/objective/update/{id}', 'ObjectiveController@putObjective')->name('putObjective');
 //---------------------------------------------------------------------------
 //                               Refere
 //---------------------------------------------------------------------------

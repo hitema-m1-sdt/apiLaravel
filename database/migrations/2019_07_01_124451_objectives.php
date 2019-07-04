@@ -19,6 +19,7 @@ class Objectives extends Migration
             $table->string('objectiveName');
             $table->boolean('knowledge');
             $table->string('comment')->nullable();
+            $table->timestamps();
         });
 
         schema::table('objectives', function (Blueprint $table){
