@@ -18,6 +18,7 @@ class Lessons extends Migration
             $table->integer('idCombatInstructor')->unsigned()->nullable();
             $table->integer('idShooter')->unsigned()->nullable();
             $table->string('comment')->nullable();
+            $table->timestamps();
         });
 
         Schema::table('lessons', function (Blueprint $table) {
