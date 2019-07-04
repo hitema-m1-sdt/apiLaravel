@@ -17,6 +17,7 @@ class Trainings extends Migration
             $table->increments('id');
             $table->dateTime('startDate');
             $table->dateTime('endDate');
+            $table->string('type');
         });
     }
 
