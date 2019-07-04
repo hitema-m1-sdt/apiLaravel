@@ -30,7 +30,7 @@ class TrainingController extends Controller
              if (in_array( $value->format('D'), $request->get('days'))) {
 
                  $hour = intval(substr($request->get('time'), 0, 2));
-                 $minutes = intval(substr($request->get('time'), 2, 2));
+                 $minutes = intval(substr($request->get('time'), 3, 2));
                  $value->setTime($hour,$minutes);
                  Training::create(['date' =>  $value, 'type' => $request->get('type')]);
 
@@ -43,7 +43,7 @@ class TrainingController extends Controller
 
 
 
-         return response()->json(array('success' => true, 200));
+         return response()->json(array('success' => true, 200, 'time' => $request->get('time')));
      }
   //---------------------------------------------------------------------------
   //                                  Read
