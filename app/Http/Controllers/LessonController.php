@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lesson;
+use App\Models\User;
 
 class LessonController extends Controller
 {
@@ -12,6 +13,7 @@ class LessonController extends Controller
 //---------------------------------------------------------------------------
    public function postLesson(Request $request) {
      header("Access-Control-Allow-Origin: *");
+     //dd($request->only('idShooter'));
      Lesson::create($request->all());
      return response()->json(array('success' => true, 'lesson_created' => 1), 200);
    }
@@ -20,7 +22,7 @@ class LessonController extends Controller
 //---------------------------------------------------------------------------
  public function getAllLesson() {
    header("Access-Control-Allow-Origin: *");
-   $lessons = Lesson::get();
+   $lessons = Lesson::with('tireur')->with('maitre')->get();
    return response()->json($lessons);
  }
  public function getLesson($lesson_id) {
@@ -32,8 +34,7 @@ class LessonController extends Controller
  //                                  Update
  //---------------------------------------------------------------------------
  public function putLesson(Request $request, $lesson_id) {
-   header("Access-Control-Allow-Origin: *");
-   Lesson::find($lesson_id)->update($request->all());
+   Lesson::where('id',$lesson_id)->update($request->all());
    return response()->json(array('success' => true, 'lesson_created' => 1), 200);
  }
  //---------------------------------------------------------------------------
