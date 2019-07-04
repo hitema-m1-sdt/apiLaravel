@@ -18,7 +18,7 @@ class Objectives extends Migration
             $table->integer('idShooter')->unsigned()->nullable();
             $table->string('objectiveName');
             $table->boolean('knowledge');
-            $table->json('comment')->nullable();
+            $table->string('comment')->nullable();
         });
 
         schema::table('objectives', function (Blueprint $table){
