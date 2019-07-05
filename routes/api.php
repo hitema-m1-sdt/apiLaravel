@@ -58,7 +58,7 @@ Route::get('/training/getall', 'TrainingController@getAllTraining')->name('getAl
 Route::get('/training/get/{id}', 'TrainingController@getTraining')->where('id', '[0-9]+')->name('getTraining');
 Route::post('/training/delete/{id}', 'TrainingController@deleteTraining')->name('deleteTraining');
 
-Route::get('/training/today', 'TrainingController@getTrainingsOfTheDay')->name('getTrainingOfTheDay');
+Route::get('/training/today/{id}', 'TrainingController@getTrainingsOfTheDay')->name('getTrainingOfTheDay');
 Route::get('/training/get/{id}', 'TrainingController@getTraining')->name('getTraining');
 Route::get('/training/delete/{id}', 'TrainingController@deleteTraining')->name('deleteTraining');
 
@@ -82,4 +82,4 @@ Route::get('/referees/delete/{id}', 'RefereController@deleteRefere')->name('dele
 //---------------------------------------------------------------------------
 //                               Attendances
 //---------------------------------------------------------------------------
-Route::get('/attendances/today/{id}', 'AttendanceController@getAttendancesOfTheDay')->name('getAttendancesOfTheDay');
+Route::post('/attendance/create', 'AttendanceController@createAttendance')->name('createAttendance');
