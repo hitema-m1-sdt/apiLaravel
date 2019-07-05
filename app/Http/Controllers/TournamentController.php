@@ -27,6 +27,11 @@ class TournamentController extends Controller
      $tournament = Tournament::find($tournament_id);
      return response()->json($tournament);
    }
+   public function getParticipant() {
+     header("Access-Control-Allow-Origin: *");
+     $tournament = Tournament::with('participants')->get();
+     return response()->json($tournament);
+   }
    //---------------------------------------------------------------------------
    //                                  Update
    //---------------------------------------------------------------------------
