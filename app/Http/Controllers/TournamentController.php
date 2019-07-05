@@ -14,6 +14,12 @@ class TournamentController extends Controller
        Tournament::create($request->all());
        return response()->json(array('success' => true, 'Tournament_created' => 1), 200);
      }
+
+     public function signUpTournament(Request $request)
+     {
+        $tournament =  Tournament::find($request->get('tournament'));
+
+     }
   //---------------------------------------------------------------------------
   //                                  Read
   //---------------------------------------------------------------------------
