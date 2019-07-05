@@ -18,7 +18,8 @@ class TournamentController extends Controller
      public function signUpTournament(Request $request)
      {
          /** @var Tournament $tournament */
-        $tournament =  Tournament::find($request->get('tournament'))->with('participants')->first();
+        $tournament =  Tournament::find(['id' => $request->get('tournament')])->first();
+
         $tournament->participants()->attach($request->get('user'));
          return response()->json(array('success' => true, 'Tournament_updated' => 1), 200);
 
