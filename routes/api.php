@@ -46,6 +46,8 @@ Route::get('/tournament/delete/{id}', 'TournamentController@deleteTournament')->
 Route::post('/tournament/create', 'TournamentController@postTournament')->name('postTournament');
 Route::put('/tournament/update/{id}', 'TournamentController@putTournament')->name('putTournament');
 Route::get('/tournament/get/participant', 'TournamentController@getParticipant')->name('getParticipant');
+Route::get('/tournament/get/participant/{id}', 'TournamentController@getParticipantWithUser')->name('getParticipantWithUser');
+Route::post('/tournament/signup', 'TournamentController@signUpTournament')->name('signUpTournament');
 //---------------------------------------------------------------------------
 //                               Categories
 //---------------------------------------------------------------------------

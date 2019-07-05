@@ -17,7 +17,11 @@ class TournamentController extends Controller
 
      public function signUpTournament(Request $request)
      {
-        $tournament =  Tournament::find($request->get('tournament'));
+         /** @var Tournament $tournament */
+        $tournament =  Tournament::find($request->get('tournament'))->with('participants')->first();
+        $tournament->participants()->attach($request->get('user'));
+         return response()->json(array('success' => true, 'Tournament_updated' => 1), 200);
+
 
      }
   //---------------------------------------------------------------------------
@@ -38,6 +42,14 @@ class TournamentController extends Controller
      $tournament = Tournament::with('participants')->get();
      return response()->json($tournament);
    }
+
+    public function getParticipantWithUser($idUser) {
+        header("Access-Control-Allow-Origin: *");
+        $tournament = Tournament::with(['participants'  =>  function($q) use($idUser)  {
+            $q->where('idUser', '=', $idUser);
+        }])->get();
+        return response()->json($tournament);
+    }
    //---------------------------------------------------------------------------
    //                                  Update
    //---------------------------------------------------------------------------
