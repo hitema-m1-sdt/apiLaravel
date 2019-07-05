@@ -24,6 +24,10 @@ class User extends Authenticatable implements JWTSubject
     {
       return $this->hasMany('App\Models\Lesson');
     }
+    public function objectives()
+    {
+      return $this->hasMany('App\Models\Objective');
+    }
 
     /**
      * The attributes that should be hidden for arrays.

@@ -20,6 +20,9 @@ class tournaments extends Migration
             $table->string('localisation');
             $table->date('date');
             $table->time('hour');
+            $table->string('arm');
+            $table->string('gender');
+            $table->string('level');
             $table->timestamps();
             });
 
