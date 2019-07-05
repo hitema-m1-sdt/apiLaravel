@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Objective;
+use App\Models\User;
 
 class ObjectiveController extends Controller
 {
@@ -18,7 +19,7 @@ class ObjectiveController extends Controller
   //                                  Read
   //---------------------------------------------------------------------------
    public function getAllObjective() {
-     $objectives = Objective::get();
+     $objectives = Objective::with('tireur')->with('maitre')->get();
      return response()->json($objectives);
    }
    public function getObjective($objective_id) {
