@@ -58,10 +58,13 @@ class TrainingController extends Controller
    }
 
 
-   public function getTrainingsOfTheDay()
+   public function getTrainingsOfTheDay($idUser)
    {
 
        $trainings = Training::where(DB::raw('date(`date`)'), '=', DB::raw('curdate()'))
+           ->with(['attendances' =>  function($q) use($idUser)  {
+               $q->where('idUser', '=', $idUser);
+            }])
            ->orderBy('date')
            ->get();
 

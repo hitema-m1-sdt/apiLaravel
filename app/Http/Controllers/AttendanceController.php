@@ -11,18 +11,14 @@ use Illuminate\Support\Facades\DB;
 
 class AttendanceController extends Controller
 {
-    public function getAttendancesOfTheDay(Request $request, $idUser)
-    {
-
-        $attendances = Attendance::where(['idUser' => $idUser])->with(['training'  => function($q) {
-        // Query the name field in status table
-        $q->where(DB::raw('date(`date`)'), '=', DB::raw('curdate()')); // '=' is optional
-
-        }])->get();
+   public function createAttendance(Request $request){
 
 
+       Attendance::create(['idUser' => $request->get('user'), 'idTraining' => $request->get('training')]);
 
-        return response()->json($attendances);
-    }
+       return response()->json(
+           array('success' => true, 'Objective_created' => 1)
+           , 200);
+   }
 
 }

@@ -11,4 +11,10 @@ class Training extends Model
   ];
 
   public $timestamps = false;
+
+
+    public function attendances()
+    {
+        return $this->hasMany('App\Models\Attendance', 'idTraining');
+    }
 }
