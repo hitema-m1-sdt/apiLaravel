@@ -11,7 +11,6 @@ class TournamentController extends Controller
   //                                  Create
   //---------------------------------------------------------------------------
      public function postTournament(Request $request) {
-       header("Access-Control-Allow-Origin: *");
        Tournament::create($request->all());
        return response()->json(array('success' => true, 'Tournament_created' => 1), 200);
      }

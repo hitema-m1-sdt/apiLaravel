@@ -11,7 +11,6 @@ class ObjectiveController extends Controller
   //                                  Create
   //---------------------------------------------------------------------------
      public function postObjective(Request $request) {
-       header("Access-Control-Allow-Origin: *");
        Objective::create($request->all());
        return response()->json(array('success' => true, 'Objective_created' => 1), 200);
      }
@@ -19,12 +18,10 @@ class ObjectiveController extends Controller
   //                                  Read
   //---------------------------------------------------------------------------
    public function getAllObjective() {
-     header("Access-Control-Allow-Origin: *");
      $objectives = Objective::get();
      return response()->json($objectives);
    }
    public function getObjective($objective_id) {
-     header("Access-Control-Allow-Origin: *");
      $objective = Objective::find($objective_id);
      return response()->json($objective);
    }
@@ -32,7 +29,6 @@ class ObjectiveController extends Controller
    //                                  Update
    //---------------------------------------------------------------------------
    public function putObjective(Request $request, $objective_id) {
-     header("Access-Control-Allow-Origin: *");
      Objective::find($objective_id)->update($request->all());
      return response()->json(array('success' => true, 'Objective_created' => 1), 200);
    }
@@ -40,7 +36,6 @@ class ObjectiveController extends Controller
    //                                  Delete
    //---------------------------------------------------------------------------
    public function deleteObjective($objective_id) {
-     header("Access-Control-Allow-Origin: *");
      $objective = Objective::find($objective_id)->delete();
      return response()->json(array('success' => true, 'Objective_deleted' => 1), 200);
    }

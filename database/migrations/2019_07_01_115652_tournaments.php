@@ -15,15 +15,17 @@ class tournaments extends Migration
     {
         Schema::create('tournaments', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idCategory')->unsigned()->nullable();
+            $table->string('categories')->nullable();
             $table->string('name');
             $table->string('localisation');
-            $table->dateTime('DateHour');
+            $table->date('date');
+            $table->time('hour');
+            $table->timestamps();
             });
 
-        Schema::table('tournaments', function (Blueprint $table) {
-            $table->foreign('idCategory')->references('id')->on('categories');
-          });
+        // Schema::table('tournaments', function (Blueprint $table) {
+        //     $table->foreign('idCategory')->references('id')->on('categories');
+        //   });
     }
 
     /**
